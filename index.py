@@ -224,9 +224,9 @@ class GameState():
                 localX += (self.xVolcan - (screenWidth/2 - 150/2)) * self.dt
                 print(localX) """
 
-            circle = py.draw.circle(screen, lineColor, (localX, localY), 5)
-            self.shapesP[0].append(circle)
-            #py.draw.line(screen, lineColor, (xpos[i]+78 + (screenWidth/2- 150/2), ypos[i]+screenHeight), (xpos[i+1]+78 + (screenWidth/2 - 150/2), ypos[i+1]+screenHeight), 8)
+            #shape = py.draw.circle(screen, lineColor, (localX, localY), 5)
+            shape = py.draw.line(screen, lineColor, (localX, localY), (xpos[i+1]+78 + (screenWidth/2 - 150/2), ypos[i+1]+screenHeight), 8)
+            self.shapesP[0].append(shape)
         if self.linesArray[num] > len(xpos) - 2:
                 if self.buttonRestart.draw(screen):
                     self.active = False
@@ -270,7 +270,7 @@ class GameState():
             self.intro()
         elif self.state == "main_game":
             self.main_game()
-
+ 
 game_state = GameState()
 
 while True:
